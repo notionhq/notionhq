@@ -1,0 +1,113 @@
+@import "reset", "mixins", "colors"
+
+body
+  background: url('../images/bg_tile.png') repeat
+  font:
+    family: 'Open Sans', sans-serif
+    weight: 300
+
+.container
+  width: 928px
+  margin: 200px auto 100px
+  @media screen and (max-width: 1000px)
+    width: 714px
+  @media screen and (max-width: 768px)
+    width: 500px
+  @media screen and (max-width: 320px)
+    width: 286px
+  
+  
+#masthead
+  background: url('../images/mark.png') no-repeat center top
+  padding: 50px 0 0 0
+  width: 320px
+  margin: 0 auto
+  #name
+    text-indent: -9000px
+    background: url('../images/name.png') no-repeat center
+    width: 192px
+    height: 89px
+    margin: 0 auto
+
+// circle buttons
+.circle
+  @include transition(all .3s ease)
+  @include roundcorners(36px)
+  @include boxshadow(0 -1px 0px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(0, 0, 0, 1) inset)
+  background: rgba(0, 0, 0, .3)
+  cursor: pointer
+  position: relative
+  padding: 1px
+  width: 70px
+  height: 70px 
+  float: left
+  margin: 0 35px 50px 0   
+  .pic
+    @include transition()
+    @include roundcorners(35px)
+    overflow: hidden
+    position: static
+    width: 70px
+    height: 70px
+    opacity: .35
+    background:
+      position: center center
+      repeat: no-repeat
+  .name
+    @include transition()
+    text-align: center
+    position: absolute
+    width: 72px
+    top: 30px
+    font:
+      size: 13px
+    color: rgba(255, 255, 255, .0)
+
+  &:hover
+    .pic
+      opacity: .75
+    .name
+      color: rgba(255, 255, 255, .50)
+      top: 80px
+
+
+nav
+  @include clearfix
+  .circle
+    &.work
+      .pic
+        background-image: url('../images/thumb_work.png')
+    &.people
+      .pic
+        background-image: url('../images/thumb_people.png')
+    &.about
+      .pic
+        background-image: url('../images/thumb_about.png')
+    
+#people
+  @include clearfix
+  margin: 50px 0 0 0
+  .circle
+    .pic
+      background-image: url('../images/thumb_clooney.png')
+    &:nth-child(9n+9)
+      margin-right: 0px
+    @media screen and (max-width: 1000px) and (min-width: 769px)
+      &:nth-child(7n+7)
+        margin-right: 0px
+    @media screen and (max-width: 768px) and (min-width: 481px)
+      &:nth-child(5n+5)
+        margin-right: 0px
+    @media screen and (max-width: 320px)
+      &:nth-child(3n+3)
+        margin-right: 0px
+    &.dreb
+      .pic
+        background-image: url('../images/thumb_reb.png')
+    &.csch
+      .pic
+        background-image: url('../images/thumb_sch.png')
+    &.mtuz
+      .pic
+        background-image: url('../images/thumb_tuzz.png')
+

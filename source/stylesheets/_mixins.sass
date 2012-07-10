@@ -1,0 +1,109 @@
+
+
+@mixin clearfix
+  *display:     inline-block
+  &:after      
+    :content    " "
+    :display    block
+    :height     0
+    :clear      both
+    :visibility hidden
+    
+@mixin inlineblock
+  :display -moz-inline-stack
+  :display inline-block
+  *display: inline
+  :zoom 1
+  
+@mixin box_sizing
+  :-moz-box-sizing border-box
+  :-webkit-box-sizing border-box
+  :box-sizing border-box
+  
+@mixin roundcorners($args)
+  :-moz-border-radius $args
+  :-webkit-border-radius $args
+  :border-radius $args
+  
+@mixin boxshadow($args, $secondary_args: '')
+  @if $secondary_args == ''
+    :-moz-box-shadow $args
+    :-webkit-box-shadow $args
+    :box-shadow $args
+  @else
+    :-moz-box-shadow $args, $secondary_args
+    :-webkit-box-shadow $args, $secondary_args
+    :box-shadow $args, $secondary_args
+
+@mixin textshadow($args)
+  :text-shadow $args
+  
+@mixin opacity($value)
+  :opacity $value
+  :filter alpha(opacity = ($value*100))
+  
+@mixin transform($value)
+  :-webkit-transform $value
+  :-moz-transform $value
+  :-o-transform $value
+  :-ms-transform $value
+  :transform $value
+  :filter progid:DXImageTransform.Microsoft.BasicImage(rotation= ($value/30))
+  
+@mixin transition($value: all .2s ease)
+  :-webkit-transition $value
+  :-moz-transition $value
+  :-o-transition $value
+  :transition $value
+
+@mixin transition_page($value: all .2s ease-out)
+  :-webkit-transition $value
+  :-moz-transition $value
+  :-o-transition $value
+  :transition $value
+  
+@mixin bggradient($bottomval, $topval)
+  :background-image mix($bottomval, $topval)
+  :background-image -moz-linear-gradient(top, $topval 0%, $bottomval 100%)
+  :background-image -webkit-gradient(linear, left top, left bottom, color-stop(0%,$topval), color-stop(100%,$bottomval))
+  :background-image -webkit-linear-gradient(top, $topval 0%,$bottomval 100%) /* Chrome10+,Safari5.1+ */
+  :background-image -o-linear-gradient(top, $topval 0%,$bottomval 100%) /* Opera11.10+ */
+  :background-image -ms-linear-gradient(top, $topval 0%,$bottomval 100%) /* IE10+ */
+  :filter progid:DXImageTransform.Microsoft.gradient( startColorstr=$topval, endColorstr=$bottomval,GradientType=0 ) /* IE6-9 */  
+  :background-image linear-gradient(top, $topval 0%,$bottomval 100%) /* W3C */  
+
+@mixin bggradient_horiz($leftval, $rightval)
+  :background $rightval
+  :background -moz-linear-gradient(left, $leftval, $rightval)
+  :background -webkit-linear-gradient(left, $leftval, $rightval) /* Chrome10+,Safari5.1+ */
+  :background -o-linear-gradient(left, $leftval, $rightval) /* Opera11.10+ */
+  :background -ms-linear-gradient(left, $leftval, $rightval) /* IE10+ */
+  :background linear-gradient(left, $leftval, $rightval) /* W3C */  
+  
+  
+  
+
+  
+  
+  
+@keyframes new_story
+  from
+    background-color: #D5E9D9
+  to
+    background-color: #f2f2f2
+
+
+@-moz-keyframes new_story
+  from
+    background-color: #D5E9D9
+  to
+    background-color: #f2f2f2
+
+
+@-webkit-keyframes new_story
+  from
+    background-color: #D5E9D9
+  to
+    background-color: #f2f2f2
+    
+    
