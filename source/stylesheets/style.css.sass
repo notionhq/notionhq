@@ -8,20 +8,15 @@ body
 
 .container
   width: 928px
-  margin: 200px auto 100px
-  @media screen and (max-width: 1000px)
-    width: 714px
-  @media screen and (max-width: 768px)
-    width: 500px
-  @media screen and (max-width: 320px)
-    width: 286px
+  margin: 0 auto
+
   
   
 #masthead
   background: url('../images/mark.png') no-repeat center top
   padding: 50px 0 0 0
   width: 320px
-  margin: 0 auto
+  margin: 200px auto 100px
   #name
     text-indent: -9000px
     background: url('../images/name.png') no-repeat center
@@ -32,7 +27,7 @@ body
 // circle buttons
 .circle
   @include transition(all .3s ease)
-  @include roundcorners(36px)
+  @include roundcorners(35px)
   @include boxshadow(0 -1px 0px rgba(255, 255, 255, .15) inset, 0 1px 0 rgba(0, 0, 0, 1) inset)
   background: rgba(0, 0, 0, .3)
   cursor: pointer
@@ -62,14 +57,29 @@ body
     font:
       size: 13px
     color: rgba(255, 255, 255, .0)
-
   &:hover
     .pic
       opacity: .75
     .name
       color: rgba(255, 255, 255, .50)
       top: 80px
-
+  &.active
+    &:after
+      @include transition
+      @include box_sizing
+      @include roundcorners(36px)
+      content: ""
+      position: absolute
+      width: 74px
+      height: 74px
+      top: -2px
+      left: -2px
+      border: 1px solid rgba(252, 238, 33, .5)
+    .pic
+      opacity: .75
+    &:hover
+      .name
+        color: rgba(255, 255, 255, .0)
 
 nav
   @include clearfix
@@ -111,3 +121,96 @@ nav
       .pic
         background-image: url('../images/thumb_tuzz.png')
 
+
+#person_detail
+  display: none
+
+
+
+
+
+// how much of this can I do in css? let's find out!
+
+body.showperson
+
+  #masthead
+    margin: 75px auto
+    #name
+      display: none
+
+  #person_detail
+    @include boxshadow( 0 1px 0 rgba(255, 255, 255, .07))
+    display: block
+    background: #000
+    .container
+      @include transition(background-position .3s ease)
+      @include box_sizing()
+      @include clearfix
+      overflow: hidden
+      position: relative
+      padding: 30px 0 30px 250px
+      height: 200px
+      background: url('../images/color_pics.png') no-repeat
+      color: #fff    
+      
+      #details
+        @include transition(top .5s ease-out)
+        position: absolute
+        top: 30px
+        width: 675px
+        .person
+          @include clearfix
+          margin: 0 0 100px
+      
+          .bio
+            float: left
+            width: 350px
+            p
+              color: #808080
+              margin: 10px 0 0 0
+              line-height: 21px
+          .connect
+            margin: 23px 0 0 0
+            float: right
+            width: 200px
+            font-weight: 400
+            a
+              @include transition()
+              display: block
+              padding: 5px 0 5px 25px
+              background: url('../images/connect_icons.png') no-repeat
+              text-decoration: none
+              color: #333
+              &:hover
+                color: #555
+              &.twit
+                background-position: 0px 8px
+              &.web
+                background-position: 0px -28px
+              &.mail
+                background-position: 0px -62px
+            
+      &.mtuz
+        background-position: 0px -600px
+        #details
+          top: 30px
+      &.csch
+        background-position: 0px 0px
+        #details
+          top: -430px
+      &.dreb
+        background-position: 0px -300px  
+        #details
+          top: -200px
+
+
+
+// media Queries
+
+
+  @media screen and (max-width: 1000px)
+    width: 714px
+  @media screen and (max-width: 768px)
+    width: 500px
+  @media screen and (max-width: 320px)
+    width: 286px

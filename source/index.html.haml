@@ -1,51 +1,82 @@
 
-#main.container
+#main
+  
+  .container
 
-  #masthead
-    %h1#name Notion
+    #masthead
+      %h1#name Notion
   
   #person_detail
-    .bio
-      %h3
-    
+    .container.mtuz
+      #details
+
+        .mtuz.person
+          .bio
+            %h3 Matt Tuzzolo
+            %p In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris.
+          .connect
+            %a.twit{:href => "#"} @tuzzcontrol
+            %a.web{:href => "#"} www.tuzzcontrol.com
+            %a.mail{:href => "#"} mattt@notionhq.com
   
-  #people
-    .circle.csch
-      .pic
-      .name
-        Chris
-    .circle.mtuz
-      .pic
-      .name
-        Matt T
-    .circle.dreb
-      .pic
-      .name
-        Damian
-    .circle.jpoz
-      .pic
-      .name
-        James
-    .circle.cruf
-      .pic
-      .name
-        Collin
-    .circle.dcac
-      .pic
-      .name
-        Dan
-    .circle.jbro
-      .pic
-      .name
-        Jackson
-    .circle.mwil
-      .pic
-      .name
-        Matt W
-    .circle.kpon
-      .pic
-      .name
-        Kevin
+        .dreb.person
+          .bio
+            %h3 Damian Rebman
+            %p In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris.
+          .connect
+            %a.twit{:href => "#"} @damian_r
+            %a.web{:href => "#"} www.rebhal.com
+            %a.mail{:href => "#"} damian@notionhq.com
+  
+        .cshc.person
+          .bio
+            %h3 Chris Schepman
+            %p In condimentum facilisis porta. Sed nec diam eu diam mattis viverra. Nulla fringilla, orci ac euismod semper, magna diam porttitor mauris, quis sollicitudin sapien justo in libero. Vestibulum mollis mauris.
+          .connect
+            %a.twit{:href => "#"} @tuzzcontrol
+            %a.web{:href => "#"} www.tuzzcontrol.com
+            %a.mail{:href => "#"} mattt@notionhq.com
+
+
+        
+  .container
+    #people
+      .circle.csch{"data-name" => "csch"}
+        .pic
+        .name
+          Chris
+      .circle.mtuz{"data-name" => "mtuz"}
+        .pic
+        .name
+          Matt T
+      .circle.dreb{"data-name" => "dreb"}
+        .pic
+        .name
+          Damian
+      .circle.jpoz{"data-name" => "jpoz"}
+        .pic
+        .name
+          James
+      .circle.cruf{"data-name" => "cruf"}
+        .pic
+        .name
+          Collin
+      .circle.dcac{"data-name" => "dcac"}
+        .pic
+        .name
+          Dan
+      .circle.jbro{"data-name" => "jbro"}
+        .pic
+        .name
+          Jackson
+      .circle.mwil{"data-name" => "mwil"}
+        .pic
+        .name
+          Matt W
+      .circle.kpon{"data-name" => "kpon"}
+        .pic
+        .name
+          Kevin
 
 
 
