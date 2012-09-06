@@ -115,41 +115,50 @@ nav
         background-image: url('../images/thumb_<%= shrt %>.png')
   <% end %>
 
-
-#person_detail
-  display: none
-
-
-
 // how much of this can I do in css? let's find out!
 
 body.showperson
 
   #location
-    margin: 9px auto
+    margin: 50px auto
+    color: grey
     text-align: center
   #masthead
-    margin: 75px auto
+    margin: 75px auto 40px auto
 
   #person_detail
     @include boxshadow( 0 1px 0 rgba(255, 255, 255, .07))
     display: block
+    &.closed
+      height: 0px
+      overflow: hidden
+      .container
+        height: 0px
     background: #000
     .container
       @include transition(background-position .3s ease)
+      @include transition(height .3s ease)
       @include box_sizing()
       @include clearfix
       overflow: hidden
       position: relative
       padding: 30px 0 30px 250px
-      height: 200px
-      background: url('../images/color_pics.png') no-repeat
+      height: 400px
+      width: 1224px
       color: #fff
-
+      #headshots
+        @include transition(top .5s ease-out)
+        top: -<%= (data.members.count-1) * 400 %>px
+        left: 0px
+        position: absolute
+        .headshot
+          width: 400px
+          height: 400px
       #details
         @include transition(top .5s ease-out)
         position: absolute
         top: 30px
+        left: 460px
         width: 675px
         .person
           @include clearfix
@@ -158,6 +167,7 @@ body.showperson
           .bio
             float: left
             width: 350px
+            height: 400px
             p
               color: #808080
               margin: 10px 0 0 0
@@ -182,27 +192,13 @@ body.showperson
                 background-position: 0px -28px
               &.mail
                 background-position: 0px -62px
-    <% data.members.each do |shrt, person| %>
-      <% next unless person['has_image'] %>
+    <% data.members.each_with_index do |(shrt, person), i| %>
       <%= "&.#{shrt}" %>
-      .pic
-        background-image: url('../images/thumb_<%= shrt %>.png')
+        #headshots
+          top: -<%= (data.members.count-(i+1)) * 400 %>px
+        #details
+          top: -<%= ((i) * 500) - 30 %>px
     <% end %>
-
-      &.mtuz
-        background-position: 0px -600px
-        #details
-          top: 30px
-      &.csch
-        background-position: 0px 0px
-        #details
-          top: -430px
-      &.dreb
-        background-position: 0px -300px
-        #details
-          top: -200px
-
-
 
 // media Queries
 

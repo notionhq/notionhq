@@ -5,8 +5,12 @@
     #masthead
       %h1#name Notion
 
-  #person_detail
+  #person_detail.closed
     .container
+      #headshots
+        - data.members.keys.reverse.each do |shrt|
+          %div{:class => "#{shrt} headshot"}
+            %img{:src => "/images/members/#{shrt}.png"}
       #details
         - data.members.each do |shrt, person|
           %div{:class => "#{shrt} person"}
@@ -14,7 +18,7 @@
               %h3= person['full_name']
               %p= person['desc']
             .connect
-              %a.twit{:href => "#"}== @#{person['twitter']}
+              %a.twit{:target => '_blank', :href => "http://twitter.com/#{person['twitter']}"}== @#{person['twitter']}
               %a.mail{:href => "mailto:#{}"}= person['email']
 
   .container
@@ -26,7 +30,7 @@
             = person['full_name'][0..(person['full_name'].index(" ") + 1)]
 
 
-  %h2#location PORTLAND &nbsp; SANTA BARBRA
+  %h2#location PORTLAND &nbsp;&nbsp;&nbsp; SANTA BARBRA
 
 
   //  %nav
